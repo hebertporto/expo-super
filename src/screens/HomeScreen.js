@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -18,6 +19,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -30,6 +32,12 @@ export default class HomeScreen extends React.Component {
               }
               style={styles.welcomeImage}
             />
+            <Button
+                title="Go to Offline"
+                onPress={() =>
+                  navigate('Offline', { name: 'Jane' })
+                }
+              />
           </View>
 
           <View style={styles.getStartedContainer}>
