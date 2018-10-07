@@ -9,16 +9,16 @@ export class NovelScreen extends Component {
   // static navigatorStyle = {
   //   tabBarHidden: true
   // }
-  // static navigationOptions = {
-  //   title: 'My Title',
-  //   headerTitleStyle: {alignSelf: 'center'},
-  // }
+  static navigationOptions = {
+    title: 'My Title',
+    headerTitleStyle: {alignSelf: 'center'},
+  }
   state = {
     titles: []
   }
   componentDidMount = () => {
     // viewTracker(` Novel - ${this.props.novel.name}`)
-    const { _id } = this.props.novel
+    const { _id } = this.props.navigation.state.params.novel
     this.getChaptersTitle(_id)
   }
 
@@ -27,7 +27,7 @@ export class NovelScreen extends Component {
     this.setState({ titles })
   }
 
-  goBack = () => this.props.navigator.goBack()
+  goBack = () => this.props.navigation.goBack()
 
   navigateToChapter = (chapterProps) => {
     console.log('chapter')
@@ -46,18 +46,13 @@ export class NovelScreen extends Component {
   render () {
     const { titles } = this.state
     return (
-      <View>
-        <Text>Novel</Text>
-      </View>
+      <Novel
+        novel={this.props.navigation.state.params.novel}
+        chaptersTitles={titles}
+        goBack={this.goBack}
+        navigateToChapter={this.navigateToChapter}
+      />
     )
-    // return (
-    //   <Novel
-    //     novel={this.props.novel}
-    //     chaptersTitles={titles}
-    //     goBack={this.goBack}
-    //     navigateToChapter={this.navigateToChapter}
-    //   />
-    // )
   }
 }
 

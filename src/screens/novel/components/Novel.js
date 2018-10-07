@@ -124,7 +124,6 @@ class Novel extends Component {
                 <RkButton
                   onPress={this.toogleText}
                   style={styles.button}
-                  contentStyle={styles.buttonContent}
                   rkType='icon'
                 >
                   {/* <Icon name="visibility" size={18} color='white' /> */}

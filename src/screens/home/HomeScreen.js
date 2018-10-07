@@ -23,8 +23,7 @@ export class HomeScreen extends Component {
   }
 
   navigateToNovel = (novel) => {
-    this.props.navigator.navigate('Novel', { novel })
-    console.log('aa', novel)
+    this.props.navigation.navigate('Novel', { novel })
   }
 
   render () {

@@ -1,8 +1,11 @@
+import Axios from 'axios'
+
 export const getNovelChapters = async (id) => {
   try {
     const novel = await Axios.get(`https://stark-beach-53351.herokuapp.com/api/chaptertitles/${id}`)
     return novel.data.data
   } catch (e) {
+    console.log('e', e)
     throw new Error('Error during get CHAPTERS TITLES')
   }
 }
