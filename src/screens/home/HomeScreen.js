@@ -4,27 +4,27 @@ import { View, StyleSheet } from 'react-native'
 
 import { ListNovels } from './components/ListNovels'
 
-// import { getAllNovels } from '../../../services/backend/novelService'
+import { getAllNovels } from '../../services/api/novelService'
 // import { NOVEL_SCREEN } from '../../../navigation/routes'
 
 export class HomeScreen extends Component {
   state = {
     novels: []
   }
-  // componentDidMount = () => {
-  //   viewTracker('HomeScreen')
-  //   this.fetchNovels()
-  // }
+  componentDidMount = () => {
+    // viewTracker('HomeScreen')
+    this.fetchNovels()
+  }
 
-  // fetchNovels = async () => {
-  //   const novels = await getAllNovels()
-  //   console.log(novels)
-  //   this.setState({ novels })
-  // }
+  fetchNovels = async () => {
+    const novels = await getAllNovels()
+    console.log(novels)
+    this.setState({ novels })
+  }
 
   navigateToNovel = (novel) => {
-    // this.props.navigator.push({...NOVEL_SCREEN, passProps: {novel}})
-    console.log('aa')
+    this.props.navigator.navigate('Novel', { novel })
+    console.log('aa', novel)
   }
 
   render () {

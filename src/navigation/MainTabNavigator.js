@@ -6,12 +6,15 @@ import TabBarIcon from '../components/TabBarIcon';
 
 // import HomeScreen from '../screens/HomeScreen';
 import HomeScreen from '../screens/home/HomeScreen';
+import NovelScreen from '../screens/novel/NovelScreen';
+
 import OfflineScreen from '../screens/offline/OfflineScreen';
 import BookmarkScreen from '../screens/bookmark/BookmarkScreen';
 
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  Novel: NovelScreen
 });
 
 HomeStack.navigationOptions = {
