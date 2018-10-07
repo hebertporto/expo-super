@@ -2,7 +2,7 @@ import {
   Dimensions,
   StyleSheet
 } from 'react-native'
-import { Fonts } from '../../../../constants/fonts'
+import { Fonts } from '../../../../constants/Typography'
 
 const { width, height } = Dimensions.get('window')
 const cols = 3

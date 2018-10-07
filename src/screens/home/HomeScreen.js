@@ -1,29 +1,30 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { viewTracker } from '../../../config/analytics'
+// import { viewTracker } from '../../../config/analytics'
 
-import { ListNovels } from '../components/ListNovels'
+import { ListNovels } from './components/ListNovels'
 
-import { getAllNovels } from '../../../services/backend/novelService'
-import { NOVEL_SCREEN } from '../../../navigation/routes'
+// import { getAllNovels } from '../../../services/backend/novelService'
+// import { NOVEL_SCREEN } from '../../../navigation/routes'
 
-class HomeContainer extends Component {
+export class HomeScreen extends Component {
   state = {
     novels: []
   }
-  componentDidMount = () => {
-    viewTracker('HomeScreen')
-    this.fetchNovels()
-  }
+  // componentDidMount = () => {
+  //   viewTracker('HomeScreen')
+  //   this.fetchNovels()
+  // }
 
-  fetchNovels = async () => {
-    const novels = await getAllNovels()
-    console.log(novels)
-    this.setState({ novels })
-  }
+  // fetchNovels = async () => {
+  //   const novels = await getAllNovels()
+  //   console.log(novels)
+  //   this.setState({ novels })
+  // }
 
   navigateToNovel = (novel) => {
-    this.props.navigator.push({...NOVEL_SCREEN, passProps: {novel}})
+    // this.props.navigator.push({...NOVEL_SCREEN, passProps: {novel}})
+    console.log('aa')
   }
 
   render () {
@@ -44,4 +45,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export const HomeScreen = HomeContainer
+export default HomeScreen
