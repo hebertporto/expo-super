@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-class OfflineContainer extends Component {
+export class OfflineScreen extends Component {
   render () {
     return (
       <View>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export const OfflineScreen = OfflineContainer
+export default OfflineScreen

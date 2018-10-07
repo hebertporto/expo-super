@@ -3,12 +3,14 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
+
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import OfflineScreen from '../screens/offline/OfflineScreen';
+import BookmarkScreen from '../screens/bookmark/BookmarkScreen';
+
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 });
 
 HomeStack.navigationOptions = {
@@ -18,43 +20,47 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-list${focused ? '-box' : ''}`
+          : `md-list${focused ? '-box' : ''}`
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const OfflineStack = createStackNavigator({
+  Offline: OfflineScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+OfflineStack.navigationOptions = {
+  tabBarLabel: 'Offline',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios'
+        ? `ios-download`
+        : `md-download`}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const BookmarkStack = createStackNavigator({
+  Bookmark: BookmarkScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+BookmarkStack.navigationOptions = {
+  tabBarLabel: 'Bookmark',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'ios'
+        ? `ios-star${focused ? ''
+        : '-outline'}` : 'md-options'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  BookmarkStack,
+  OfflineStack,
 });
