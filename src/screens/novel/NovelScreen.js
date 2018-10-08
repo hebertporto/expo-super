@@ -29,25 +29,25 @@ export class NovelScreen extends Component {
 
   goBack = () => this.props.navigation.goBack()
 
-  navigateToChapter = (chapterProps) => {
-    console.log('chapter')
-    // this.props.navigator.navigate(
-    //   'Chapter',
-    //   {
-    //     chapterProps,
-    //     trackChapter: `${this.props.novel.name} - ${chapterProps.number}`,
-    //     novelName: this.props.novel.name
-    //   }
-    //   // title: this.props.novel.name,
-    //   // subtitle: `${chapterProps.number} - ${chapterProps.title}`
-    // )
+  navigateToChapter = chapterProps => {
+    const { novel } = this.props.navigation.state.params
+    this.props.navigation.navigate(
+      'Chapter',
+      {
+        chapterProps,
+        trackChapter: `${novel.name} - ${chapterProps.number}`,
+        novelName: novel.name
+      }
+    )
   }
 
   render () {
     const { titles } = this.state
+    const { novel } = this.props.navigation.state.params
+
     return (
       <Novel
-        novel={this.props.navigation.state.params.novel}
+        novel={novel}
         chaptersTitles={titles}
         goBack={this.goBack}
         navigateToChapter={this.navigateToChapter}
