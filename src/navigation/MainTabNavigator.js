@@ -59,8 +59,8 @@ BookmarkStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios'
-        ? `ios-star${focused ? ''
-        : '-outline'}` : 'md-options'}
+        ? `ios-star${focused ? '' : '-outline'}`
+        : 'md-star'}
     />
   ),
 };

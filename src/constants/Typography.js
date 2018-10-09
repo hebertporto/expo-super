@@ -1,10 +1,24 @@
 import { Platform } from 'react-native'
 
+// const type = {
+//   kefa: 'space-mono',
+//   base: 'space-mono',
+//   bold: 'space-mono',
+//   emphasis: 'space-mono'
+// }
+
 const type = {
-  kefa: 'space-mono',
-  base: 'space-mono',
-  bold: 'space-mono',
-  emphasis: 'space-mono'
+  ...Platform.select({
+    android: {
+      base: 'Roboto',
+    },
+    ios: {
+      base: 'helvetica',
+    }
+  }),
+  kefa: 'kefa',
+  bold: 'alegreya-bold',
+  emphasis: 'alegreya-italic'
 }
 
 const size = {
