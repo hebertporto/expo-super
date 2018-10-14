@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import { RkButton } from 'react-native-ui-kitten'
+
 import Chapter from './components/Chapter'
 import { getChapterById } from '../../services/api/chapterService'
 // import { viewTracker } from '../../../config/analytics'
 import { saveChapter } from '../../services/app/offlineChapterService'
+
+import { Colors } from '../../constants/Colors'
 
 export class ChapterScreen extends Component {
   // static navigatorStyle = {
@@ -17,6 +21,17 @@ export class ChapterScreen extends Component {
   //     }
   //   ]
   // }
+
+  static navigationOptions = {
+    title: 'Chapter',
+    headerStyle: {
+      backgroundColor: Colors.navbarBackground,
+    },
+    headerTintColor: '#fff',
+    headerRight: (
+      <RkButton onPress={() => console.log('PageThree')} >Next</RkButton>
+    ),
+  }
 
   state = {
     chapter: {}

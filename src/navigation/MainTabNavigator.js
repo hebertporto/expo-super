@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 
+import { Colors } from '../constants/Colors';
 // import HomeScreen from '../screens/HomeScreen';
 import HomeScreen from '../screens/home/HomeScreen';
 import NovelScreen from '../screens/novel/NovelScreen';
@@ -13,11 +14,22 @@ import OfflineScreen from '../screens/offline/OfflineScreen';
 import BookmarkScreen from '../screens/bookmark/BookmarkScreen';
 
 
-const HomeStack = createStackNavigator({
+const HomeStack = createStackNavigator(
+  {
   Home: HomeScreen,
   Novel: NovelScreen,
   Chapter: ChapterScreen
-});
+  },
+  {
+    initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Colors.navbarBackground,
+      },
+      headerTintColor: '#fff',
+    },
+  }
+);
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
@@ -30,7 +42,7 @@ HomeStack.navigationOptions = {
           : `md-list${focused ? '-box' : ''}`
       }
     />
-  ),
+  )
 };
 
 const OfflineStack = createStackNavigator({

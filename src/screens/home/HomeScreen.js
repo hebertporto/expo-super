@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-// import { viewTracker } from '../../../config/analytics'
 
+// import { viewTracker } from '../../../config/analytics'
 import { ListNovels } from './components/ListNovels'
 
 import { getAllNovels } from '../../services/api/novelService'
 // import { NOVEL_SCREEN } from '../../../navigation/routes'
 
 export class HomeScreen extends Component {
+
+  static navigationOptions = {
+    title: 'Super Novel Reader'
+  }
+
   state = {
     novels: []
   }
