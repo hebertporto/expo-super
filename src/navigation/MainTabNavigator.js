@@ -13,6 +13,12 @@ import ChapterScreen from '../screens/novel/ChapterScreen';
 import OfflineScreen from '../screens/offline/OfflineScreen';
 import BookmarkScreen from '../screens/bookmark/BookmarkScreen';
 
+const defaultNavigationOptions = {
+  headerStyle: {
+    backgroundColor: Colors.navbarBackground,
+  },
+  headerTintColor: '#fff',
+}
 
 const HomeStack = createStackNavigator(
   {
@@ -22,12 +28,7 @@ const HomeStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: Colors.navbarBackground,
-      },
-      headerTintColor: '#fff',
-    },
+    defaultNavigationOptions
   }
 );
 
@@ -45,9 +46,15 @@ HomeStack.navigationOptions = {
   )
 };
 
-const OfflineStack = createStackNavigator({
-  Offline: OfflineScreen,
-});
+const OfflineStack = createStackNavigator(
+  {
+    Offline: OfflineScreen,
+  },
+  {
+    initialRouteName: 'Offline',
+    defaultNavigationOptions
+  }
+);
 
 OfflineStack.navigationOptions = {
   tabBarLabel: 'Offline',
@@ -61,9 +68,15 @@ OfflineStack.navigationOptions = {
   ),
 };
 
-const BookmarkStack = createStackNavigator({
+const BookmarkStack = createStackNavigator(
+  {
   Bookmark: BookmarkScreen,
-});
+  },
+  {
+    initialRouteName: 'Bookmark',
+    defaultNavigationOptions
+  }
+);
 
 BookmarkStack.navigationOptions = {
   tabBarLabel: 'Bookmark',

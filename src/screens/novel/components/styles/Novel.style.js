@@ -4,9 +4,9 @@ import { Colors } from '../../../../constants/Colors'
 
 const { width } = Dimensions.get('window')
 
-const boxWidth = width - 70
-const bottonBodyContainer = 80
-const textPadding = bottonBodyContainer + 20
+const boxWidth = width - 70;
+const bottonBodyContainer = -20; //80
+const textPadding = bottonBodyContainer + 20;
 
 export const styles = StyleSheet.create({
   containerImageBackground: {
@@ -14,13 +14,14 @@ export const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 30,
   },
   imageCardContainer: {
     flex: 1,
     alignItems: 'center',
     paddingTop: 10,
-    elevation: 15
+    // elevation: 15
   },
   imageBox: {
     height: 250,
@@ -112,10 +113,10 @@ export const styles = StyleSheet.create({
     height: 20,
     width: 90,
     marginTop: 15,
-    backgroundColor: Colors.primaryBlue
+    backgroundColor: Colors.primaryBlue,
   },
   buttonContent: {
-    fontSize: 10
+    padding: 5
   },
   backbutton: {
     width: '100%',

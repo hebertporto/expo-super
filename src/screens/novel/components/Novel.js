@@ -10,7 +10,8 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from 'react-native'
-// import Icon from 'react-native-vector-icons/MaterialIcons'
+
+import { MaterialIcons as Icon } from '@expo/vector-icons'
 
 import { styles } from './styles/Novel.style.js'
 import ChapterList from './ChapterList'
@@ -65,7 +66,6 @@ class Novel extends Component {
 
   render () {
     const { name, cover_url, translation_team, author } = this.state.novel
-    // console.log('this.state', this.state)
     return (
       <ImageBackground
         source={{ uri: cover_url }}
@@ -74,7 +74,11 @@ class Novel extends Component {
         <View style={styles.backbutton}>
           <View>
             <TouchableOpacity onPress={() => this.props.goBack()}>
-              {/* <Icon name="arrow-back" size={30} style={{color: '#A9B2BA'}}/> */}
+              <Icon
+                name="arrow-back"
+                size={30}
+                style={{color: '#A9B2BA'}}
+              />
             </TouchableOpacity>
           </View>
         </View>
@@ -100,7 +104,7 @@ class Novel extends Component {
 
             <View style={styles.scanContainer}>
               <View style={styles.labelContainer}>
-                {/* <Icon name="account-circle" size={14} /> */}
+                <Icon name="account-circle" size={14} />
                 <Text
                   style={styles.labelContainerText}
                   numberOfLines={1}>
@@ -111,7 +115,7 @@ class Novel extends Component {
 
             <View style={styles.scanContainer}>
               <View style={styles.labelContainer}>
-                {/* <Icon name="translate" size={14} /> */}
+                <Icon name="translate" size={14} />
                 <Text style={styles.labelContainerText}>{translation_team}</Text>
               </View>
             </View>
@@ -124,10 +128,11 @@ class Novel extends Component {
                 <RkButton
                   onPress={this.toogleText}
                   style={styles.button}
+                  contentStyle={styles.buttonContent}
+                  content={this.state.textToogle}
                   rkType='icon'
                 >
-                  {/* <Icon name="visibility" size={18} color='white' /> */}
-                  {this.state.textToogle}
+                  <Icon name="visibility" size={18} color='white' />
                 </RkButton>
               </View>
             </View>
@@ -139,7 +144,11 @@ class Novel extends Component {
                 chapters={this.props.chaptersTitles}
                 navigateToChapter={this.props.navigateToChapter}
               />
-              <ActivityIndicator size="large" color="#0000ff" animating={this.state.loading}/>
+              <ActivityIndicator
+                size="large"
+                color="#0000ff"
+                animating={this.state.loading}
+              />
             </View>
 
           </View>

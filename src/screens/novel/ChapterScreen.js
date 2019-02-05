@@ -24,10 +24,6 @@ export class ChapterScreen extends Component {
 
   static navigationOptions = {
     title: 'Chapter',
-    headerStyle: {
-      backgroundColor: Colors.navbarBackground,
-    },
-    headerTintColor: '#fff',
     headerRight: (
       <RkButton onPress={() => console.log('PageThree')} >Next</RkButton>
     ),

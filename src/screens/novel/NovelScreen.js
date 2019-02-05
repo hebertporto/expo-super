@@ -11,7 +11,7 @@ export class NovelScreen extends Component {
   // }
   static navigationOptions = {
     title: 'My Title',
-    headerTitleStyle: {alignSelf: 'center', textAlign: 'center'},
+    header: null
   }
   state = {
     titles: []
