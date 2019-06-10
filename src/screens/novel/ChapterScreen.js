@@ -48,7 +48,6 @@ export class ChapterScreen extends Component {
   //         ...this.state.chapter
   //       }
   //       await saveChapter(offlineChapter)
-  //       console.log('chapter', offlineChapter)
   //     }
   //   }
   // }

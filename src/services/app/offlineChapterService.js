@@ -12,10 +12,8 @@ export const saveChapter = async (chapter) => {
   try {
     const chaptersList = await getAll()
     chaptersList.push(chapter)
-    console.log('chaper to save', chaptersList)
     await saveList(chaptersList)
   } catch (e) {
-    console.log('error save chapter', e)
   }
 }
 

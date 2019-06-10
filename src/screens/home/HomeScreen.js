@@ -23,7 +23,6 @@ export class HomeScreen extends Component {
 
   fetchNovels = async () => {
     const novels = await getAllNovels()
-    console.log(novels)
     this.setState({ novels })
   }
 
