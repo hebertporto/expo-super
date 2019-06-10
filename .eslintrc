@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.8.0"
+    }
+  },
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error", {
+      "singleQuote": true
+    }]
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true,
+      "legacyDecorators": true
+    }
+  },
+  "extends": ["plugin:prettier/recommended", "prettier/react", "react-native-prettier"]
+}
