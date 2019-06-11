@@ -25,8 +25,8 @@ export class ChapterScreen extends Component {
   static navigationOptions = {
     title: 'Chapter',
     headerRight: (
-      <RkButton onPress={() => console.log('PageThree')} >Next</RkButton>
-    ),
+      <RkButton onPress={() => console.log('PageThree')}>Next</RkButton>
+    )
   }
 
   state = {
@@ -52,17 +52,13 @@ export class ChapterScreen extends Component {
   //   }
   // }
 
-  getChapter = async (id) => {
+  getChapter = async id => {
     const chapter = await getChapterById(id)
-    this.setState({chapter})
+    this.setState({ chapter })
   }
-  render () {
+  render() {
     const { chapter } = this.state
-    return (
-      <Chapter
-        chapter={chapter}
-      />
-    )
+    return <Chapter chapter={chapter} />
   }
 }
 

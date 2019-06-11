@@ -1,10 +1,19 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { AppLoading } from 'expo'
-import AppNavigator from './src/navigation/AppNavigator'
 import { Asset } from 'expo-asset'
 import * as Font from 'expo-font'
 import * as Icon from '@expo/vector-icons'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { ApolloProvider } from 'react-apollo'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import AppNavigator from './src/navigation/AppNavigator'
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({ uri: 'http://10.0.3.2:4000/graphql' })
+})
 
 export default class App extends React.Component {
   state = {
@@ -35,9 +44,11 @@ export default class App extends React.Component {
   render() {
     if (this.state.isLoadingComplete) {
       return (
-        <View style={styles.container}>
-          <AppNavigator />
-        </View>
+        <ApolloProvider client={client}>
+          <View style={styles.container}>
+            <AppNavigator />
+          </View>
+        </ApolloProvider>
       )
     }
     return (

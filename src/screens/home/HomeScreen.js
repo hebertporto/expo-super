@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
-
+import { View, StyleSheet, Text } from 'react-native'
+import { Query } from 'react-apollo'
 // import { viewTracker } from '../../../config/analytics'
 import { ListNovels } from './components/ListNovels'
-
+import { GET_NOVELS } from '../../graphql/Query'
 import { getAllNovels } from '../../services/api/novelService'
 // import { NOVEL_SCREEN } from '../../../navigation/routes'
 
 export class HomeScreen extends Component {
-
   static navigationOptions = {
     title: 'Super Novel Reader'
   }
@@ -26,17 +25,41 @@ export class HomeScreen extends Component {
     this.setState({ novels })
   }
 
-  navigateToNovel = (novel) => {
+  navigateToNovel = novel => {
     this.props.navigation.navigate('Novel', { novel })
   }
 
-  render () {
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <ListNovels
+  //         novels={this.state.novels}
+  //         navigateToNovel={novel => this.navigateToNovel(novel)}
+  //       />
+  //     </View>
+  //   )
+  // }
+
+  render() {
     return (
       <View style={styles.container}>
-        <ListNovels
-          novels={this.state.novels}
-          navigateToNovel={(novel) => this.navigateToNovel(novel)}
-        />
+        <Query query={GET_NOVELS}>
+          {({ data, loading }) => {
+            if (loading) {
+              return (
+                <View>
+                  <Text>Loading</Text>
+                </View>
+              )
+            }
+            return (
+              <ListNovels
+                novels={data.getNovels}
+                navigateToNovel={novel => this.navigateToNovel(novel)}
+              />
+            )
+          }}
+        </Query>
       </View>
     )
   }
