@@ -2,48 +2,37 @@ import { Dimensions, StyleSheet } from 'react-native'
 import { Fonts } from '../../../../constants/Typography'
 
 const { width, height } = Dimensions.get('window')
-const cols = 2
-const rows = 3
+const cols = 1
+const rows = 7
 
 export const styles = StyleSheet.create({
   container: {
-    marginLeft: 10,
-    marginBottom: 10,
     height: (height - 20 - 20) / rows - 10,
     width: (width - 10) / cols - 10,
-    elevation: 5,
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
-    borderRadius: 10,
-    borderWidth: 0,
-    borderColor: 'transparent'
-  },
-  imageContainer: {
-    flex: 0.8,
-    borderRadius: 10,
-    // marginLeft: 5,
-    // marginRight: 5,
-    position: 'relative',
+    flexDirection: 'row',
+    marginHorizontal: 10,
     marginTop: 10
   },
+  imageContainer: {
+    flex: 0.5
+  },
   image: {
-    borderRadius: 10,
     ...StyleSheet.absoluteFillObject
   },
   textContainer: {
-    flex: 0.2,
-    height: 40,
-    position: 'absolute',
-    bottom: 3,
-    paddingHorizontal: 5
+    flex: 0.5,
+    paddingHorizontal: 8,
+    position: 'relative'
   },
   title: {
     ...Fonts.style.description,
-    fontWeight: '600',
-    marginTop: 4,
-    textAlign: 'center'
+    fontWeight: '500',
+    textAlign: 'left',
+    fontSize: 17
+  },
+  updateContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 8
   }
 })

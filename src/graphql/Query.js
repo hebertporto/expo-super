@@ -6,6 +6,7 @@ export const GET_NOVELS = gql`
       id
       name
       coverUrl
+      description
       chapters {
         number
         title

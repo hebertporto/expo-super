@@ -9,6 +9,7 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import AppNavigator from './src/navigation/AppNavigator'
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -45,9 +46,11 @@ export default class App extends React.Component {
     if (this.state.isLoadingComplete) {
       return (
         <ApolloProvider client={client}>
-          <View style={styles.container}>
-            <AppNavigator />
-          </View>
+          <ApolloHooksProvider client={client}>
+            <View style={styles.container}>
+              <AppNavigator />
+            </View>
+          </ApolloHooksProvider>
         </ApolloProvider>
       )
     }

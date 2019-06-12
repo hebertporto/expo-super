@@ -10,10 +10,10 @@ import { Platform } from 'react-native'
 const type = {
   ...Platform.select({
     android: {
-      base: 'Roboto',
+      base: 'Roboto'
     },
     ios: {
-      base: 'helvetica',
+      base: 'helvetica'
     }
   }),
   kefa: 'kefa',
