@@ -3,13 +3,9 @@ import PropTypes from 'prop-types'
 import { FlatList } from 'react-native'
 import { ItemNovel } from './ItemNovel'
 
-ListNovelsContainer = ({ novels, navigateToNovel }) => {
-  const renderNovel = ({ item }) => (
-    <ItemNovel novel={item} navigateToNovel={navigateToNovel} />
-  )
-
+ListNovelsContainer = ({ novels }) => {
+  const renderNovel = ({ item }) => <ItemNovel novel={item} />
   const keyExtractor = item => item.id
-
   return (
     <FlatList
       data={novels}
@@ -21,8 +17,7 @@ ListNovelsContainer = ({ novels, navigateToNovel }) => {
 }
 
 ListNovelsContainer.propTypes = {
-  novels: PropTypes.array,
-  navigateToNovel: PropTypes.func.isRequired
+  novels: PropTypes.array
 }
 
 export const ListNovels = ListNovelsContainer

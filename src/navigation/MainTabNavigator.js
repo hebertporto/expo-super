@@ -25,7 +25,11 @@ const HomeStack = createStackNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: () => ({
-        title: 'Super Novel Reader'
+        title: 'Super Novel Reader',
+        headerTitleStyle: {
+          textAlign: 'center',
+          flex: 1
+        }
       })
     },
     Novel: NovelScreen,

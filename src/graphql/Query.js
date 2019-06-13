@@ -1,13 +1,13 @@
 import gql from 'graphql-tag'
 
-export const GET_NOVELS = gql`
+export const NOVELS_QUERY = gql`
   query {
-    getNovels {
+    novels {
       id
       name
       coverUrl
       description
-      chapters {
+      lastChapter {
         number
         title
         createdAt
