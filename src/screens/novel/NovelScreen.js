@@ -22,7 +22,7 @@ export class NovelScreen extends Component {
     this.getChaptersTitle(_id)
   }
 
-  getChaptersTitle = async (id) => {
+  getChaptersTitle = async id => {
     const titles = await getNovelChapters(id)
     this.setState({ titles })
   }
@@ -31,17 +31,14 @@ export class NovelScreen extends Component {
 
   navigateToChapter = chapterProps => {
     const { novel } = this.props.navigation.state.params
-    this.props.navigation.navigate(
-      'Chapter',
-      {
-        chapterProps,
-        trackChapter: `${novel.name} - ${chapterProps.number}`,
-        novelName: novel.name
-      }
-    )
+    this.props.navigation.navigate('Chapter', {
+      chapterProps,
+      trackChapter: `${novel.name} - ${chapterProps.number}`,
+      novelName: novel.name
+    })
   }
 
-  render () {
+  render() {
     const { titles } = this.state
     const { novel } = this.props.navigation.state.params
 
