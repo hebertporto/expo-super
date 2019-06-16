@@ -5,35 +5,58 @@ import {
   createBottomTabNavigator
 } from 'react-navigation'
 import TabBarIcon from '../components/TabBarIcon'
+import { CustomHeader } from './components/CustomHeader'
 import { Colors } from '../constants/Colors'
-
+import { get } from 'lodash'
 import { HomeScreen } from '../screens/home/HomeScreen'
-import NovelScreen from '../screens/novel/NovelScreen'
-import ChapterScreen from '../screens/novel/ChapterScreen'
-import OfflineScreen from '../screens/offline/OfflineScreen'
-import BookmarkScreen from '../screens/bookmark/BookmarkScreen'
+import { NovelScreen } from '../screens/novel/NovelScreen'
+import { ChapterScreen } from '../screens/novel/ChapterScreen'
+import { OfflineScreen } from '../screens/offline/OfflineScreen'
+import { BookmarkScreen } from '../screens/bookmark/BookmarkScreen'
+
+const getScreenTitle = nav => get(nav, 'state.params.screenTitle', '')
+
+const getScreenSubTitle = nav => get(nav, 'state.params.screenSubTitle', '')
 
 const defaultNavigationOptions = {
   headerStyle: {
     backgroundColor: Colors.navbarBackground
   },
-  headerTintColor: '#fff'
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    textAlign: 'center',
+    flex: 1
+  },
+  headerTitleContainerStyle: {
+    left: 55
+  }
 }
 
 const HomeStack = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
-      navigationOptions: () => ({
-        title: 'Super Novel Reader',
-        headerTitleStyle: {
-          textAlign: 'center',
-          flex: 1
-        }
+      navigationOptions: {
+        title: 'Super Novel Reader'
+      }
+    },
+    Novel: {
+      screen: NovelScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: getScreenTitle(navigation)
       })
     },
-    Novel: NovelScreen,
-    Chapter: ChapterScreen
+    Chapter: {
+      screen: ChapterScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: (
+          <CustomHeader
+            title={getScreenTitle(navigation)}
+            subtitle={getScreenSubTitle(navigation)}
+          />
+        )
+      })
+    }
   },
   {
     initialRouteName: 'Home',

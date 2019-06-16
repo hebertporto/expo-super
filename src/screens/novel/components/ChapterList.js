@@ -1,37 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { FlatList } from 'react-native'
-import {ChapterListRow, ChapterListFooter} from './ChapterItemsList'
-// import VideoReward from '../../shared/components/VideoAd'
+import { ChapterRow } from './ChapterItemsList'
 
-class ChapterList extends Component {
-  state = {
-    adVideo: false
-  }
-  renderRow = (data) => {
-    const { item, index } = data
-    return <ChapterListRow
-      chapter={item}
-      protected={index % 2 === 0}
-      navigateToChapter={this.props.navigateToChapter}
+function ChapterList({ chapters }) {
+  const renderRow = ({ item }) => <ChapterRow chapter={item} />
+  const keyExtractor = item => item.id
+  return (
+    <FlatList
+      data={chapters}
+      numColumns={1}
+      renderItem={renderRow}
+      keyExtractor={keyExtractor}
     />
-  }
-  hideVideoButton = () => this.setState({adVideo: true})
-  renderFooter = () => <ChapterListFooter />
-  // renderHeader = () => <VideoReward showButton={this.state.adVideo} />
-  keyExtractor = item => item._id.toString()
-
-  render () {
-    return (
-      <FlatList
-        data={this.props.chapters}
-        numColumns={1}
-        renderItem={this.renderRow}
-        keyExtractor={this.keyExtractor}
-        // ListHeaderComponent={this.renderHeader}
-        // ListFooterComponent={this.renderFooter}
-      />
-    )
-  }
+  )
 }
 
-export default ChapterList
+export { ChapterList }

@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 export class OfflineScreen extends Component {
-  render () {
+  render() {
     return (
       <View>
-        <Text style={styles.title}>
-          Em Breve
-        </Text>
+        <Text style={styles.title}>Em Breve</Text>
         <Text style={styles.text}>
           Será possível salvar capítulos de suas Novels favoritas e ler offline!
         </Text>
@@ -33,4 +31,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default OfflineScreen
+export default { OfflineScreen }

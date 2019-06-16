@@ -17,8 +17,8 @@ export const NOVELS_QUERY = gql`
 `
 
 export const NOVEL_QUERY = gql`
-  query {
-    novel(id: "58d822dc8f3f0e0004f4d2a0") {
+  query NOVEL_QUERY($id: String!) {
+    novel(id: $id) {
       name
       description
       author
@@ -29,10 +29,26 @@ export const NOVEL_QUERY = gql`
         number
       }
     }
-    chapters(id: "58d822dc8f3f0e0004f4d2a0") {
+    chapters(id: $id) {
       id
       title
       number
+      createdAt
+      novel {
+        name
+      }
+    }
+  }
+`
+export const CHAPTER_QUERY = gql`
+  query CHAPTER_QUERY($id: String!) {
+    chapter(id: $id) {
+      id
+      title
+      number
+      translators
+      revisors
+      content
       createdAt
     }
   }

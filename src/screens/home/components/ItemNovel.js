@@ -9,11 +9,10 @@ import { styles } from './styles/ItemNovel.style'
 const Item = ({ novel, navigation }) => {
   const { name, coverUrl, lastChapter } = novel
   const { number, title, createdAt } = lastChapter
+  const navigate = () =>
+    navigation.navigate('Novel', { novel, screenTitle: novel.name })
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate('Novel', { novel })}
-    >
+    <TouchableOpacity style={styles.container} onPress={navigate}>
       <View style={styles.imageContainer}>
         <Image source={{ uri: coverUrl }} style={styles.image} />
       </View>
@@ -28,7 +27,7 @@ const Item = ({ novel, navigation }) => {
           </Text>
           <Text>
             <FontAwesome name="calendar" size={14} />
-            {`  ${moment(parseFloat(createdAt)).format('DD/MM/YYYY')}`}
+            {`  ${moment(parseInt(createdAt, 10)).format('DD/MM/YYYY')}`}
           </Text>
         </View>
       </View>

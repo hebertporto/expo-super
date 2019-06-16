@@ -4,23 +4,57 @@ import { Colors } from '../../../../constants/Colors'
 
 const { width } = Dimensions.get('window')
 
-const boxWidth = width - 70;
-const bottonBodyContainer = -20; //80
-const textPadding = bottonBodyContainer + 20;
+const boxWidth = width - 70
+const bottonBodyContainer = -20 //80
+const textPadding = bottonBodyContainer + 20
 
 export const styles = StyleSheet.create({
+  root: {
+    flex: 1
+  },
+  imageSection: {
+    flex: 0.25
+  },
+  infoSection: {
+    flex: 0.11,
+    justifyContent: 'space-around',
+    paddingHorizontal: 15,
+    paddingVertical: 5
+  },
+  adsSection: {
+    flex: 0.09
+  },
+  listSection: {
+    flex: 0.55
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    height: '100%',
+    width: '100%'
+  },
+  labelInfo: {
+    flexDirection: 'row'
+  },
+  label: {
+    ...Fonts.style.tiny,
+    lineHeight: 18,
+    paddingLeft: 5
+  }
+})
+
+export const styles2 = StyleSheet.create({
   containerImageBackground: {
     height: '100%',
     width: '100%',
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: 30,
+    paddingTop: 30
   },
   imageCardContainer: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 10,
+    paddingTop: 10
     // elevation: 15
   },
   imageBox: {
@@ -113,7 +147,7 @@ export const styles = StyleSheet.create({
     height: 20,
     width: 90,
     marginTop: 15,
-    backgroundColor: Colors.primaryBlue,
+    backgroundColor: Colors.primaryBlue
   },
   buttonContent: {
     padding: 5

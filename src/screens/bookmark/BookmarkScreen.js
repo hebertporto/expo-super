@@ -7,12 +7,10 @@ export class BookmarkScreen extends Component {
   //   viewTracker('BookmarkScreen')
   // }
 
-  render () {
+  render() {
     return (
       <View>
-        <Text style={styles.title}>
-          Em Breve
-        </Text>
+        <Text style={styles.title}>Em Breve</Text>
         <Text style={styles.text}>
           Uma lista somente com suas novels favoritas!
         </Text>
@@ -37,4 +35,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default BookmarkScreen
+export default { BookmarkScreen }
