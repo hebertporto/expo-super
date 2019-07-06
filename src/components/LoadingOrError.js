@@ -4,6 +4,7 @@ import LottieView from 'lottie-react-native'
 
 const LoadingOrError = ({ loading, error }) => {
   if (error && !loading) {
+    console.log('error: ', error)
     return (
       <View style={styles.root}>
         <LottieView

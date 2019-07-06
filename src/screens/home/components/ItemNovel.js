@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import { get } from 'lodash'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
 import { styles } from './styles/ItemNovel.style'
 
 const Item = ({ novel, navigation }) => {
-  const { name, coverUrl, lastChapter } = novel
-  const { number, title, createdAt } = lastChapter
+  const { name, coverUrl } = novel
+  const number = get(novel, 'lastChapter.number', '')
+  const title = get(novel, 'lastChapter.title', '')
+  const createdAt = get(novel, 'lastChapter.createdAt', '')
   const navigate = () =>
     navigation.navigate('Novel', { novel, screenTitle: novel.name })
   return (

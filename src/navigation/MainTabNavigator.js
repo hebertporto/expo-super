@@ -12,6 +12,7 @@ import { HomeScreen } from '../screens/home/HomeScreen'
 import { NovelScreen } from '../screens/novel/NovelScreen'
 import { ChapterScreen } from '../screens/novel/ChapterScreen'
 import { OfflineScreen } from '../screens/offline/OfflineScreen'
+import { ChapterOffScreen } from '../screens/offline/ChapterOffScreen'
 import { BookmarkScreen } from '../screens/bookmark/BookmarkScreen'
 
 const getScreenTitle = nav => get(nav, 'state.params.screenTitle', '')
@@ -28,7 +29,7 @@ const defaultNavigationOptions = {
     flex: 1
   },
   headerTitleContainerStyle: {
-    left: 55
+    left: 0
   }
 }
 
@@ -80,7 +81,18 @@ HomeStack.navigationOptions = {
 
 const OfflineStack = createStackNavigator(
   {
-    Offline: OfflineScreen
+    Offline: OfflineScreen,
+    ChapterOff: {
+      screen: ChapterOffScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: (
+          <CustomHeader
+            title={getScreenTitle(navigation)}
+            subtitle={getScreenSubTitle(navigation)}
+          />
+        )
+      })
+    }
   },
   {
     initialRouteName: 'Offline',
@@ -123,7 +135,7 @@ BookmarkStack.navigationOptions = {
 }
 
 export default createBottomTabNavigator({
-  HomeStack,
-  BookmarkStack,
-  OfflineStack
+  OfflineStack,
+  HomeStack
+  // BookmarkStack
 })

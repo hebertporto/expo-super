@@ -1,17 +1,26 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet } from 'react-native'
+import { getAll } from '../../services/app/offlineChapterService'
+import { ChapterListOff } from './components/ChapterListOff'
 
-export class OfflineScreen extends Component {
-  render() {
-    return (
-      <View>
-        <Text style={styles.title}>Em Breve</Text>
-        <Text style={styles.text}>
-          Será possível salvar capítulos de suas Novels favoritas e ler offline!
-        </Text>
-      </View>
-    )
-  }
+function OfflineScreen({ navigation }) {
+  console.log('navigation: ', navigation.state.key)
+  const [chapters, setChapters] = useState([])
+
+  useEffect(() => {
+    console.log('rodou effect')
+    const getAllChapters = async () => {
+      const chapters = await getAll()
+      setChapters(chapters)
+    }
+    getAllChapters()
+  }, [])
+
+  return (
+    <View style={styles.container}>
+      <ChapterListOff chapters={chapters} />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -31,4 +40,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default { OfflineScreen }
+export { OfflineScreen }

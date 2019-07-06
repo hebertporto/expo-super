@@ -17,7 +17,7 @@ export const NOVELS_QUERY = gql`
 `
 
 export const NOVEL_QUERY = gql`
-  query NOVEL_QUERY($id: String!) {
+  query NOVEL_QUERY($id: ID!) {
     novel(id: $id) {
       name
       description
@@ -41,7 +41,7 @@ export const NOVEL_QUERY = gql`
   }
 `
 export const CHAPTER_QUERY = gql`
-  query CHAPTER_QUERY($id: String!) {
+  query CHAPTER_QUERY($id: ID!) {
     chapter(id: $id) {
       id
       title
@@ -50,6 +50,9 @@ export const CHAPTER_QUERY = gql`
       revisors
       content
       createdAt
+      novel {
+        name
+      }
     }
   }
 `

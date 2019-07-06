@@ -13,7 +13,6 @@ function NovelScreen({ navigation }) {
     error,
     loading
   } = useQuery(NOVEL_QUERY, { variables: { id: novelId } })
-
   return loading || error ? (
     <LoadingOrError loading={loading} error={error} />
   ) : (

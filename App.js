@@ -10,6 +10,14 @@ import { ApolloProvider } from 'react-apollo'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import AppNavigator from './src/navigation/AppNavigator'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
+import AppProviders from './src/context'
+
+// const client = new ApolloClient({
+//   cache: new InMemoryCache(),
+//   link: new HttpLink({
+//     uri: 'https://graphql-supernovel.herokuapp.com/graphql'
+//   })
+// })
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -47,9 +55,11 @@ export default class App extends React.Component {
       return (
         <ApolloProvider client={client}>
           <ApolloHooksProvider client={client}>
-            <View style={styles.container}>
-              <AppNavigator />
-            </View>
+            <AppProviders>
+              <View style={styles.container}>
+                <AppNavigator />
+              </View>
+            </AppProviders>
           </ApolloHooksProvider>
         </ApolloProvider>
       )
