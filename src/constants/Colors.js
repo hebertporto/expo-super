@@ -1,4 +1,4 @@
-const tintColor = '#2f95dc';
+const tintColor = '#2f95dc'
 
 export default {
   tintColor,
@@ -10,8 +10,8 @@ export default {
   warningBackground: '#EAEB5E',
   warningText: '#666804',
   noticeBackground: tintColor,
-  noticeText: '#fff',
-};
+  noticeText: '#fff'
+}
 
 export const Colors = {
   // App identity colors

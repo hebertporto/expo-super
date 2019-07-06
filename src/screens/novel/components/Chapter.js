@@ -93,7 +93,7 @@ class Chapter extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                {this.renderSaveOptions()}
+                {/* {this.renderSaveOptions()} */}
               </View>
             </View>
             <Text style={styles.textChapter}>{content}</Text>

@@ -16,9 +16,20 @@ export const styles = StyleSheet.create({
   imageContainer: {
     flex: 0.5
   },
-  image: {
-    ...StyleSheet.absoluteFillObject
+  textContainerHeader: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
   },
+  textHeader: {
+    fontSize: 22,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: 'white',
+    fontFamily: 'helvetica'
+  },
+  image: {},
   textContainer: {
     flex: 0.5,
     paddingHorizontal: 8,

@@ -15,6 +15,17 @@ export const styles = StyleSheet.create({
   imageSection: {
     flex: 0.25
   },
+  textContainer: {
+    flex: 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 25
+  },
+  textHeader: {
+    fontSize: 26,
+    fontFamily: 'alegreya-bold',
+    textAlign: 'center'
+  },
   infoSection: {
     flex: 0.11,
     justifyContent: 'space-around',
