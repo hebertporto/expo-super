@@ -12,17 +12,17 @@ import AppNavigator from './src/navigation/AppNavigator'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 import AppProviders from './src/context'
 
-// const client = new ApolloClient({
-//   cache: new InMemoryCache(),
-//   link: new HttpLink({
-//     uri: 'https://graphql-supernovel.herokuapp.com/graphql'
-//   })
-// })
-
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: new HttpLink({ uri: 'http://10.0.3.2:4000/graphql' })
+  link: new HttpLink({
+    uri: 'https://graphql-supernovel.herokuapp.com/graphql'
+  })
 })
+
+// const client = new ApolloClient({
+//   cache: new InMemoryCache(),
+//   link: new HttpLink({ uri: 'http://10.0.3.2:4000/graphql' })
+// })
 
 export default class App extends React.Component {
   state = {

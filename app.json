@@ -11,12 +11,12 @@
     "icon": "./src/assets/images/icon.png",
     "splash": {
       "image": "./src/assets/images/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "android": {
       "package": "com.supernovelreaderapp",
-      "versionCode": 13,
+      "versionCode": 1,
       "permissions": []
     },
     "updates": {
@@ -26,7 +26,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     }
   }
 }
