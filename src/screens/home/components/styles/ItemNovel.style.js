@@ -29,7 +29,9 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'helvetica'
   },
-  image: {},
+  image: {
+    ...StyleSheet.absoluteFillObject
+  },
   textContainer: {
     flex: 0.5,
     paddingHorizontal: 8,

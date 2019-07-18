@@ -16,11 +16,8 @@ const Item = ({ novel, navigation }) => {
     navigation.navigate('Novel', { novel, screenTitle: novel.name })
   return (
     <TouchableOpacity style={styles.container} onPress={navigate}>
-      {/* <View style={styles.imageContainer}>
+      <View style={styles.imageContainer}>
         <Image source={{ uri: coverUrl }} style={styles.image} />
-      </View> */}
-      <View style={styles.textContainerHeader}>
-        <Text style={styles.textHeader}>Novel</Text>
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title} numberOfLines={2}>

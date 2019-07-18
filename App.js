@@ -40,7 +40,7 @@ const http = new HttpLink({
   uri: URI.prod
 })
 
-const links = ApolloLink.from([http, retry])
+const links = ApolloLink.from([retry, http])
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),

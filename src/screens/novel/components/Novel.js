@@ -9,11 +9,8 @@ function Novel({ novel, chapters }) {
   const { coverUrl, translationTeam, author } = novel
   return (
     <View style={styles.root}>
-      {/* <View style={styles.imageSection}>
+      <View style={styles.imageSection}>
         <Image source={{ uri: coverUrl }} style={styles.image} />
-      </View> */}
-      <View style={styles.textContainer}>
-        <Text style={styles.textHeader}>{novel.name}</Text>
       </View>
       <View style={styles.infoSection}>
         <View style={styles.labelInfo}>

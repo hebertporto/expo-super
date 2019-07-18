@@ -19,6 +19,8 @@ const getScreenTitle = nav => get(nav, 'state.params.screenTitle', '')
 
 const getScreenSubTitle = nav => get(nav, 'state.params.screenSubTitle', '')
 
+const getRouterName = nav => nav.state.routes[nav.state.index].routeName
+
 const defaultNavigationOptions = {
   headerStyle: {
     backgroundColor: Colors.navbarBackground
@@ -38,15 +40,14 @@ const HomeStack = createStackNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        title: 'Super Novel Reader'
+        title: 'Super Novel Reader',
+        tabBarVisible: false
       }
     },
     Novel: {
       screen: NovelScreen,
       navigationOptions: ({ navigation }) => ({
-        title: getScreenTitle(navigation),
-        tabBarHidden: true,
-        tabBarVisible: false
+        headerTitle: <CustomHeader title={getScreenTitle(navigation)} />
       })
     },
     Chapter: {
@@ -67,18 +68,24 @@ const HomeStack = createStackNavigator(
   }
 )
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-list${focused ? '-box' : ''}`
-          : `md-list${focused ? '-box' : ''}`
-      }
-    />
-  )
+HomeStack.navigationOptions = ({ navigation }) => {
+  const routeName = getRouterName(navigation)
+  const tabBarVisible = routeName === 'Home'
+
+  return {
+    tabBarLabel: 'Home',
+    tabBarIcon: ({ focused }) => (
+      <TabBarIcon
+        focused={focused}
+        name={
+          Platform.OS === 'ios'
+            ? `ios-list${focused ? '-box' : ''}`
+            : `md-list${focused ? '-box' : ''}`
+        }
+      />
+    ),
+    tabBarVisible
+  }
 }
 
 const OfflineStack = createStackNavigator(

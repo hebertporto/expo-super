@@ -7,9 +7,11 @@ function CustomHeader({ title, subtitle }) {
       <Text numberOfLines={1} style={styles.title}>
         {title}
       </Text>
-      <Text numberOfLines={1} style={styles.subtitle}>
-        {subtitle}
-      </Text>
+      {subtitle && (
+        <Text numberOfLines={1} style={styles.subtitle}>
+          {subtitle}
+        </Text>
+      )}
     </View>
   )
 }
@@ -23,13 +25,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: '#FFF',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center',
+    width: '75%'
   },
   subtitle: {
     fontSize: 16,
     color: '#FFF',
     fontWeight: 'bold',
-    width: '70%'
+    width: '70%',
+    textAlign: 'center'
   }
 })
 
