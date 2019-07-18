@@ -7,22 +7,45 @@ import * as Icon from '@expo/vector-icons'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
+import { ApolloLink } from 'apollo-link'
+import { RetryLink } from 'apollo-link-retry'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import AppNavigator from './src/navigation/AppNavigator'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 import AppProviders from './src/context'
 
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: 'https://graphql-supernovel.herokuapp.com/graphql'
-  })
+const retryIf = error => {
+  console.log('error: ', error)
+  const doNotRetryCodes = [500, 400]
+  return !!error && !doNotRetryCodes.includes(error.statusCode)
+}
+
+const retry = new RetryLink({
+  delay: {
+    initial: 100,
+    max: 4000,
+    jitter: true
+  },
+  attempts: {
+    max: 5,
+    retryIf
+  }
 })
 
-// const client = new ApolloClient({
-//   cache: new InMemoryCache(),
-//   link: new HttpLink({ uri: 'http://10.0.3.2:4000/graphql' })
-// })
+const URI = {
+  dev: 'http://10.0.3.2:4000/graphql',
+  prod: 'https://graphql-supernovel.herokuapp.com/graphql'
+}
+const http = new HttpLink({
+  uri: URI.prod
+})
+
+const links = ApolloLink.from([http, retry])
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: links
+})
 
 export default class App extends React.Component {
   state = {

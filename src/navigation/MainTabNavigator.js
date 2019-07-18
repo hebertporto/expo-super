@@ -44,7 +44,9 @@ const HomeStack = createStackNavigator(
     Novel: {
       screen: NovelScreen,
       navigationOptions: ({ navigation }) => ({
-        title: getScreenTitle(navigation)
+        title: getScreenTitle(navigation),
+        tabBarHidden: true,
+        tabBarVisible: false
       })
     },
     Chapter: {
