@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "com.supernovelreaderapp",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
     },
     "updates": {

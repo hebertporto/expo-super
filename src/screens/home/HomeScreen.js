@@ -11,7 +11,6 @@ const HomeScreen = () => {
     error,
     loading
   } = useQuery(NOVELS_QUERY)
-
   return loading || error ? (
     <LoadingOrError loading={loading} error={error} />
   ) : (

@@ -9,7 +9,6 @@ ListNovelsContainer = ({ novels }) => {
   return (
     <FlatList
       data={novels}
-      numColumns={2}
       renderItem={renderNovel}
       keyExtractor={keyExtractor}
     />
