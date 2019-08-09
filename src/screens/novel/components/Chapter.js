@@ -66,7 +66,7 @@ class Chapter extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <View style={styles.adContainer}>
-          <AdBanner adUnitID="ca-app-pub-8356555649836141/6095712364" />
+          <AdBanner adUnitID="ca-app-pub-6359223928074410/6763576130" />
         </View>
 
         <View style={{ flex: 0.7 }}>
@@ -107,7 +107,7 @@ class Chapter extends React.Component {
         </View>
 
         <View style={styles.adContainer}>
-          <AdBanner adUnitID="ca-app-pub-8356555649836141/4361271948" />
+          <AdBanner adUnitID="ca-app-pub-6359223928074410/4336136617" />
         </View>
       </View>
     )

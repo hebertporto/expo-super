@@ -27,7 +27,7 @@ function Novel({ novel, chapters }) {
         </View>
       </View>
       <View style={styles.adsSection}>
-        <AdBanner adUnitID="ca-app-pub-8356555649836141/4361271948" />
+        <AdBanner adUnitID="ca-app-pub-6359223928074410/8950647970" />
       </View>
       <View style={styles.listSection}>
         <ChapterList chapters={chapters} />
