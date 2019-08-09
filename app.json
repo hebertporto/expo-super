@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "Super Novel Reader 2",
-    "description": "Super Novel Reader App",
+    "description": "Super Novel Reader 2",
     "slug": "supernovelexpo",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "34.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "5.0.0",
     "orientation": "default",
     "icon": "./src/assets/images/icon.png",
     "splash": {
@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "com.supernovelreaderapp",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": []
     },
     "updates": {
