@@ -27,14 +27,18 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     textAlign: 'center',
-    width: '75%'
+    width: '75%',
+    letterSpacing: 1,
+    fontFamily: 'helvetica'
   },
   subtitle: {
     fontSize: 16,
     color: '#FFF',
     fontWeight: 'bold',
     width: '70%',
-    textAlign: 'center'
+    textAlign: 'center',
+    letterSpacing: 1,
+    fontFamily: 'helvetica'
   }
 })
 

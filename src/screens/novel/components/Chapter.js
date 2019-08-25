@@ -16,7 +16,7 @@ class Chapter extends React.Component {
   }
 
   componentDidMount() {
-    this.isSaveEnable(this.props.chapter.id)
+    this.isSaveEnable()
   }
 
   isSaveEnable = async () => {
@@ -42,20 +42,30 @@ class Chapter extends React.Component {
     switch (isSaveEnable) {
       case 1:
         return (
-          <TouchableOpacity onPress={this.handleButtonSave}>
-            <IconFont name="download" size={36} />
+          <TouchableOpacity
+            onPress={this.handleButtonSave}
+            style={{ alignContent: 'center' }}
+          >
+            <Text style={{ textAlign: 'center' }}>Salvar Capítulo</Text>
+            <IconFont
+              style={{ alignSelf: 'center' }}
+              name="download"
+              size={36}
+            />
           </TouchableOpacity>
         )
       case 2:
         return (
           <TouchableOpacity onPress={this.handleButtonRemove}>
-            <IconFont name="remove" size={36} />
+            <Text style={{ textAlign: 'center' }}>Remover Capítulo</Text>
+            <IconFont style={{ alignSelf: 'center' }} name="remove" size={36} />
           </TouchableOpacity>
         )
       default:
         return (
           <View>
-            <Text>Máximo limite de capítulos</Text>
+            <Text style={{ textAlign: 'center' }}>Capítulos Salvos</Text>
+            <Text style={{ textAlign: 'center' }}>5 / 5</Text>
           </View>
         )
     }
@@ -93,7 +103,7 @@ class Chapter extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                {/* {this.renderSaveOptions()} */}
+                {this.renderSaveOptions()}
               </View>
             </View>
             <Text style={styles.textChapter}>{content}</Text>

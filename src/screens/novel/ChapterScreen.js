@@ -7,13 +7,13 @@ import { CHAPTER_QUERY } from '../../graphql/Query'
 // import { viewTracker } from '../../../config/analytics'
 
 function ChapterScreen({ navigation }) {
-  const chapterId = navigation.state.params.chapter.id
-  // const chapterId = '5d162b644f66ea0d76bd2bb1'
+  const { id } = navigation.state.params.chapter
+  // const id = '5d162b644f66ea0d76bd2bb1'
   const {
     data: { chapter },
     error,
     loading
-  } = useQuery(CHAPTER_QUERY, { variables: { id: chapterId } })
+  } = useQuery(CHAPTER_QUERY, { variables: { id } })
 
   return loading || error ? (
     <LoadingOrError loading={loading} error={error} />

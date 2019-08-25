@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   imageSection: {
-    flex: 0.25
+    flex: 0.04,
+    backgroundColor: '#72CDE8'
   },
   infoSection: {
     flex: 0.11,
@@ -22,10 +23,10 @@ export const styles = StyleSheet.create({
     paddingVertical: 5
   },
   adsSection: {
-    flex: 0.09
+    flex: 0.1
   },
   listSection: {
-    flex: 0.55
+    flex: 0.75
   },
   image: {
     ...StyleSheet.absoluteFillObject,

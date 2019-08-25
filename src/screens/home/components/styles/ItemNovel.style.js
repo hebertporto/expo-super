@@ -14,7 +14,8 @@ export const styles = StyleSheet.create({
     marginTop: 10
   },
   imageContainer: {
-    flex: 0.5
+    flex: 0.1,
+    backgroundColor: '#72CDE8'
   },
   textContainerHeader: {
     flex: 0.5,
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject
   },
   textContainer: {
-    flex: 0.5,
+    flex: 0.9,
     paddingHorizontal: 8,
     position: 'relative'
   },
@@ -41,7 +42,7 @@ export const styles = StyleSheet.create({
     ...Fonts.style.description,
     fontWeight: '500',
     textAlign: 'left',
-    fontSize: 17
+    fontSize: 20
   },
   updateContainer: {
     position: 'absolute',

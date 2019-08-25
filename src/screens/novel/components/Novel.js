@@ -1,17 +1,15 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native'
+import { Text, View } from 'react-native'
 import { MaterialIcons as Icon } from '@expo/vector-icons'
 import { ChapterList } from './ChapterList'
 import { AdBanner } from '../../../components/AdBanner'
 import { styles } from './styles/Novel.style.js'
 
 function Novel({ novel, chapters }) {
-  const { coverUrl, translationTeam, author } = novel
+  const { translationTeam, author } = novel
   return (
     <View style={styles.root}>
-      <View style={styles.imageSection}>
-        <Image source={{ uri: coverUrl }} style={styles.image} />
-      </View>
+      <View style={styles.imageSection} />
       <View style={styles.infoSection}>
         <View style={styles.labelInfo}>
           <Icon name="account-circle" size={18} />

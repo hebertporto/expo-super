@@ -13,7 +13,6 @@ import { NovelScreen } from '../screens/novel/NovelScreen'
 import { ChapterScreen } from '../screens/novel/ChapterScreen'
 import { OfflineScreen } from '../screens/offline/OfflineScreen'
 import { ChapterOffScreen } from '../screens/offline/ChapterOffScreen'
-import { BookmarkScreen } from '../screens/bookmark/BookmarkScreen'
 
 const getScreenTitle = nav => get(nav, 'state.params.screenTitle', '')
 
@@ -28,7 +27,9 @@ const defaultNavigationOptions = {
   headerTintColor: '#fff',
   headerTitleStyle: {
     textAlign: 'center',
-    flex: 1
+    flex: 1,
+    letterSpacing: 1,
+    fontFamily: 'helvetica'
   },
   headerTitleContainerStyle: {
     left: 0
@@ -90,7 +91,12 @@ HomeStack.navigationOptions = ({ navigation }) => {
 
 const OfflineStack = createStackNavigator(
   {
-    Offline: OfflineScreen,
+    Offline: {
+      screen: OfflineScreen,
+      navigationOptions: {
+        title: 'Offline'
+      }
+    },
     ChapterOff: {
       screen: ChapterOffScreen,
       navigationOptions: ({ navigation }) => ({
@@ -119,32 +125,7 @@ OfflineStack.navigationOptions = {
   )
 }
 
-const BookmarkStack = createStackNavigator(
-  {
-    Bookmark: BookmarkScreen
-  },
-  {
-    initialRouteName: 'Bookmark',
-    defaultNavigationOptions
-  }
-)
-
-BookmarkStack.navigationOptions = {
-  tabBarLabel: 'Bookmark',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-star${focused ? '' : '-outline'}`
-          : 'md-star'
-      }
-    />
-  )
-}
-
 export default createBottomTabNavigator({
   HomeStack,
   OfflineStack
-  // BookmarkStack
 })
